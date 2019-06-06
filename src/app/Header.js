@@ -5,7 +5,7 @@ import images from '../assets/images'
 
 const Header = () => (<header id="header">
   <div className="content header-wrap">
-    <section>
+ <section>
       <Link to="/home" id="header__branding">
         <img src={images.logo} alt="header logo" />
         <span className="brand-text">CRUD</span>

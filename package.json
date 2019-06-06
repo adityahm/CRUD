@@ -35,8 +35,7 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --single-quote --write",
       "git add"
-    ],
-    "*.js": ["./node_modules/.bin/eslint — fix", "git add"]
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
