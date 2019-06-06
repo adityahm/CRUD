@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Button from '../components/Button';
 import images from '../assets/images';
-const a = 'sting';
+
 const Header = () => (
   <header id="header">
     <div className="content header-wrap">
