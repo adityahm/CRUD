@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = ({
   type,
@@ -11,16 +11,18 @@ const Button = ({
   className,
   iconButton,
   children
-}) => (<button
-  type={type}
-  onClick={action}
-  className={`${iconButton ? 'icon-button' : 'button'} ${className}`}
->
-  {icon ? <FontAwesomeIcon icon={icon} size={iconSize} /> : null}
-  {text}
-  {children}
-</button>
-)
+}) => (
+  <button
+    data-test="button-component"
+    type={type}
+    onClick={action}
+    className={`${iconButton ? 'icon-button' : 'button'} ${className}`}
+  >
+    {icon ? <FontAwesomeIcon icon={icon} size={iconSize} /> : null}
+    {text}
+    {children}
+  </button>
+);
 
 Button.propTypes = {
   type: PropTypes.string,
@@ -31,7 +33,7 @@ Button.propTypes = {
   className: PropTypes.string,
   iconButton: PropTypes.bool,
   children: PropTypes.node
-}
+};
 
 Button.defaultProps = {
   type: 'button',
@@ -39,6 +41,6 @@ Button.defaultProps = {
   text: '',
   iconSize: 'lg',
   iconButton: false
-}
+};
 
-export default Button
+export default Button;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component matches the snapshot 1`] = `
+<button
+  className="icon-button "
+  data-test="button-component"
+  onClick={[Function]}
+  type="submit"
+>
+  Submit
+</button>
+`;
