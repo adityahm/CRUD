@@ -1,24 +1,17 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
-import App from './app'
-import Home from './scenes/Home'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './scenes/Home';
+import PrivateRoute from './privateRoute';
 
-const Login = () => (
-  <div>Login</div>
-)
+const Login = () => <div>Login</div>;
 
 const Root = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Login}/>
-      <App>
-        <Switch>
-          <Route path="/home" component={Home}/>
-          <Redirect to="/" />
-        </Switch>
-      </App>
+      <Route exact path="/" component={Login} />
+      <PrivateRoute path="/home" component={Home} />
     </Switch>
   </Router>
-)
+);
 
-export default Root
+export default Root;

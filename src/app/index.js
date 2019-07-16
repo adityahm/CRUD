@@ -1,24 +1,31 @@
-import React from "react";
-import Header from "./Header";
-import "../stylesheets/main.scss"
+import React from 'react';
+import Header from './Header';
+import PropTypes from 'prop-types';
+import '../stylesheets/main.scss';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            name: 'App Wrapper'
-        }
-    }
+  constructor(props) {
+    super(props);
 
-    render() {
-        return (
-            <div>
-                <Header/>
-                {this.props.children}
-            </div>
-        )
-    }
+    this.state = {
+      name: 'App Wrapper'
+    };
+  }
+
+  render() {
+    return (
+      <main>
+        <Header />
+        {this.props.children}
+      </main>
+    );
+  }
+
 }
+
+App.propTypes = {
+  children: PropTypes.node
+};
 
 export default App;

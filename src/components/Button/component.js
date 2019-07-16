@@ -40,7 +40,8 @@ Button.defaultProps = {
   className: '',
   text: '',
   iconSize: 'lg',
-  iconButton: false
+  iconButton: false,
+  action: () => null
 };
 
 export default Button;

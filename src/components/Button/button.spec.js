@@ -1,8 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from './component';
 import { findTestWrapper } from '../../utils';
+
+library.add(faUserCircle);
 
 describe('Button Component', () => {
   it('matches the snapshot', () => {
