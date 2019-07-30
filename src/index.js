@@ -1,16 +1,40 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import Root from './routes'
-import * as serviceWorker from './serviceWorker'
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {faCheckSquare, faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import Root from './routes';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
+import rootReducer from './rootReducer';
+import * as serviceWorker from './serviceWorker';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckSquare, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCheckSquare, faUserCircle)
+library.add(faCheckSquare, faUserCircle);
 
-ReactDOM.render(<Root />, document.getElementById('root'))
+const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware))
+);
+
+sagaMiddleware.run(rootSaga);
+
+const AuthContext = React.createContext();
+export default AuthContext;
+ReactDOM.render(
+  <Provider store={store}>
+    <AuthContext.Provider value={store.getState().login.loginStatus}>
+      <Root />
+    </AuthContext.Provider>
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
+serviceWorker.unregister();

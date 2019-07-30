@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './scenes/Home';
+import Login from './scenes/Login';
 import PrivateRoute from './privateRoute';
-
-const Login = () => <div>Login</div>;
 
 const Root = () => (
   <Router>
