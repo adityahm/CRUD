@@ -16,20 +16,16 @@ library.add(faCheckSquare, faUserCircle);
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(rootSaga);
 
-const AuthContext = React.createContext();
-export default AuthContext;
 ReactDOM.render(
   <Provider store={store}>
-    <AuthContext.Provider value={store.getState().login.loginStatus}>
-      <Root />
-    </AuthContext.Provider>
+    <Root />
   </Provider>,
   document.getElementById('root')
 );

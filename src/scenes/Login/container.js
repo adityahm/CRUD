@@ -4,7 +4,8 @@ import { login } from './actions';
 
 const mapStateToProps = state => ({
   isLoggingIn: state.login.isLoggingIn,
-  loginStatus: state.login.loginStatus
+  loginStatus: state.login.loginStatus,
+  data: state.login.data
 });
 
 const mapDispatchToProps = dispatch => ({

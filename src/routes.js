@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './scenes/Home';
 import Login from './scenes/Login';
+import Home from './scenes/Home';
+import Users from './scenes/Users'
+import App from './app'
 import PrivateRoute from './privateRoute';
 
 const Root = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Login} />
-      <PrivateRoute path="/home" component={Home} />
+      <App>
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute path="/users" component={Users} />
+      </App>
     </Switch>
   </Router>
 );
