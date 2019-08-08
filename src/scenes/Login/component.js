@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 class LoginComponent extends React.Component {
 
-  static contextType = AuthContext
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
 
@@ -34,12 +34,12 @@ class LoginComponent extends React.Component {
 
   render() {
     const { email, password } = this.state;
-    const {loginStatus, location, data} = this.props;
-    const auth = this.context
+    const { loginStatus, location, data } = this.props;
+    const auth = this.context;
     const referer = (location.state && location.state.referer) || '/home';
     if (loginStatus) {
-      auth.setAuthTokens(data)
-      return <Redirect to={referer} />
+      auth.setAuthTokens(data);
+      return <Redirect to={referer} />;
     }
 
     return (

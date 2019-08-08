@@ -1,3 +1,3 @@
-import Users from './container'
+import Users from './container';
 
-export default Users
+export default Users;

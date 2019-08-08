@@ -3,7 +3,7 @@ import { AuthContext } from '../../context/auth';
 
 class HomeComponent extends React.Component {
 
-  static contextType = AuthContext
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class HomeComponent extends React.Component {
   }
 
   render() {
-    const {user} = this.context
+    const { user } = this.context;
     return <div> Welcome {user.name} !!!</div>;
   }
 

@@ -1,22 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Table from '../../components/Table'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Table from '../../components/Table';
 
 class UsersComponent extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: 'User List'
-    }
+    };
   }
 
   componentDidMount() {
-    this.props.fetchUsersTry()
+    this.props.fetchUsersTry();
   }
 
   render() {
-    const {users} = this.props
+    const { users } = this.props;
 
     return (
       <div>
@@ -27,7 +27,7 @@ class UsersComponent extends React.Component {
           hasSerialNo
         />
       </div>
-    )
+    );
   }
 
 }
@@ -35,6 +35,6 @@ class UsersComponent extends React.Component {
 UsersComponent.propTypes = {
   fetchUsersTry: PropTypes.func,
   users: PropTypes.array
-}
+};
 
-export default UsersComponent
+export default UsersComponent;

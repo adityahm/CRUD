@@ -12,7 +12,7 @@ function loginApi(authParams) {
 }
 
 function usersApi() {
-  return client.get('/user/list')
+  return client.get('/user/list');
 }
 
 function* loginWorker(action) {
@@ -30,15 +30,15 @@ function* loginWatcher() {
 
 function* usersWorker() {
   try {
-    const response = yield call(usersApi)
-    yield put(fetchUsersSuccess(response.data))
+    const response = yield call(usersApi);
+    yield put(fetchUsersSuccess(response.data));
   } catch (e) {
-    yield put(fetchUsersFail(e))
+    yield put(fetchUsersFail(e));
   }
 }
 
 function* usersWatcher() {
-  yield takeLatest(FETCH_USERS_TRY, usersWorker)
+  yield takeLatest(FETCH_USERS_TRY, usersWorker);
 }
 
 export default function* rootSaga() {

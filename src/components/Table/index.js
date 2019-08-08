@@ -1,4 +1,4 @@
-import Table from './component'
-import './styles.scss'
+import Table from './component';
+import './styles.scss';
 
-export default Table
+export default Table;

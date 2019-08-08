@@ -1,15 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import {useAuth} from './context/auth';
+import { useAuth } from './context/auth';
 
 function PrivateRoute({ component: Component, ...rest }) {
   const login = useAuth();
-  return <Route {...rest} render={props => (
-    login.authTokens
-      ? <Component {...props} />
-      : <Redirect to={{ pathname: '/login', state: { referer: props.location.pathname } }} />
-  )} />
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        login.authTokens ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { referer: props.location.pathname }
+            }}
+          />
+        )
+      }
+    />
+  );
 }
 
 PrivateRoute.propTypes = {

@@ -2,14 +2,14 @@ import {
   FETCH_USERS_TRY,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAIL
-} from './constants'
+} from './constants';
 
 const initialState = {
   fetching: false,
   fetchStatus: '',
   data: [],
   error: ''
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -17,14 +17,14 @@ export default (state = initialState, action) => {
       return {
         ...initialState,
         fetching: true
-      }
+      };
     case FETCH_USERS_SUCCESS:
       return {
         ...state,
         fetching: false,
         fetchStatus: 'SUCCESS',
         data: action.payload.users
-      }
+      };
 
     case FETCH_USERS_FAIL:
       return {
@@ -32,9 +32,9 @@ export default (state = initialState, action) => {
         fetching: false,
         fetchStatus: 'FAIL',
         error: action.err
-      }
+      };
 
     default:
-      return initialState
+      return initialState;
   }
-}
+};

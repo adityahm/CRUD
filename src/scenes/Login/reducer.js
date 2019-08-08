@@ -1,4 +1,9 @@
-import { LOGIN_TRY, LOGIN_SUCCESS, LOGIN_FAIL, SET_AUTHENTICATION } from './constants';
+import {
+  LOGIN_TRY,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  SET_AUTHENTICATION
+} from './constants';
 
 const initialState = {
   isLoggingIn: false,
@@ -35,7 +40,7 @@ export default (state = initialState, action) => {
         isLoggingIn: false,
         loginStatus: true,
         data: action.data
-      }
+      };
 
     default:
       return state;
